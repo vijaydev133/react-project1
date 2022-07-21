@@ -1,0 +1,32 @@
+[
+    {
+        "id" : "1",
+        "name" : "Harry Potter and the Philosopher's Stone",
+        "img" : "https://images-eu.ssl-images-amazon.com/images/I/81m9fP+LIPL._UX300__PJku-sticker-v7,TopRight,0,-50_AC_UL304_SR304,200_.jpg"
+    },
+    {
+        "id" : "2",
+        "name" : "The Magic of the Lost Temple",
+        "img" : "https://images-eu.ssl-images-amazon.com/images/I/81UhCMXi8fL._AC_UL304_SR304,200_.jpg"
+    },
+    {
+        "id" : "3",
+        "name" : "Colour With Crayons Book",
+        "img" : "https://images-eu.ssl-images-amazon.com/images/I/81GEhSSrjKL._AC_UL304_SR304,200_.jpg"
+    },
+    {
+        "id" : "4",
+        "name" : "Great Stories for Children",
+        "img" : "https://images-eu.ssl-images-amazon.com/images/I/71s8qpa4F6L._AC_UL304_SR304,200_.jpg"
+    },
+    {
+        "id" : "5",
+        "name" : "Nursery Rhymes Board Book",
+        "img" : "https://images-eu.ssl-images-amazon.com/images/I/71N0FI8U35L._AC_UL304_SR304,200_.jpg"
+    },
+    {
+        "id" : "6",
+        "name" : "My First Animal Sticker Book",
+        "img" : "https://images-eu.ssl-images-amazon.com/images/I/817UNsZFh7L._AC_UL304_SR304,200_.jpg"
+    }
+]
