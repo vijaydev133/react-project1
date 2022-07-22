@@ -5,11 +5,9 @@ import Book from "./Book";
 
 
 export default function Home(){
-    let cartArr = []
+    
   let card =   Products.map(product=>{
-    let id = product.id
-    cartArr.push(id)
-    console.log(cartArr);
+    
    return <Book key={product.id} prod = {product}/>
    
   })
