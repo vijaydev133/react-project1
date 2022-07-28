@@ -1,22 +1,29 @@
-
-import './App.css';
-import {Routes,Route} from "react-router-dom"
-import Login from "./Login"
-import Home from './Home';
-import Cart from './Cart';
-import Favourite from './Favourite';
-
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Login from "./components/Pages/Login/Login";
+import Home from "./components/Pages/Home/Home";
+import Cart from "./components/Pages/Cart/Cart";
+import Favourite from "./components/Pages/Favourite/Favourite";
+import { setContext } from "./components/Context/Context";
+import { initialState } from "./components/Context/reducer";
+import { redFunc } from "./components/Context/reducer";
+import { useReducer } from "react";
 
 function App() {
+  const [state, dispatch] = useReducer(redFunc, initialState);
+  // console.log(state);
+  // console.log(dispatch);
   return (
-    <div className="App">
-      <Routes>
-        <Route path='/' element = {<Login/>}></Route>
-        <Route path= "home" element= {<Home/>}></Route>
-        <Route path='cart' element= {<Cart/>}></Route>
-        <Route path='favourite' element = {<Favourite/>}></Route>
-      </Routes>
-    </div>
+    <setContext.Provider value={{ state, dispatch }}>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Login />}></Route>
+          <Route path="home" element={<Home />}></Route>
+          <Route path="cart" element={<Cart />}></Route>
+          <Route path="favourite" element={<Favourite />}></Route>
+        </Routes>
+      </div>
+    </setContext.Provider>
   );
 }
 
