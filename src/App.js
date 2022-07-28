@@ -4,6 +4,7 @@ import Login from "./components/Pages/Login/Login";
 import Home from "./components/Pages/Home/Home";
 import Cart from "./components/Pages/Cart/Cart";
 import Favourite from "./components/Pages/Favourite/Favourite";
+import Detail from "./components/Pages/Details/Detail"
 import { setContext } from "./components/Context/Context";
 import { initialState } from "./components/Context/reducer";
 import { redFunc } from "./components/Context/reducer";
@@ -21,6 +22,7 @@ function App() {
           <Route path="home" element={<Home />}></Route>
           <Route path="cart" element={<Cart />}></Route>
           <Route path="favourite" element={<Favourite />}></Route>
+          <Route path="detail/:id" element={<Detail />}></Route>
         </Routes>
       </div>
     </setContext.Provider>

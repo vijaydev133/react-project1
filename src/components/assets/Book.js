@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import { setContext } from "../Context/Context";
+import { useNavigate } from "react-router-dom";
 // let cartArr = []
 // let favArr = []
 
 export default function Book(props) {
   const { state, dispatch } = useContext(setContext);
+  const navigate = useNavigate()
   //  console.log("ghjk",state);
   // console.log(dispatch);
 
@@ -58,7 +60,7 @@ export default function Book(props) {
 
   return (
     <div className="book-container">
-      <img src={props.prod.img} alt="" />
+      <img onClick={()=>navigate(`/detail/${props.prod.id}`)} src={props.prod.img} alt="" />
       <p>{props.prod.name}</p>
       <div className="btns">
         <span className="addCart" title="add to cart" onClick={addToCart}>

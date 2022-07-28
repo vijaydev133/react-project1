@@ -2,11 +2,13 @@ import React, { useContext } from "react";
 import Nav from "../../assets/Nav";
 import Products from "../../assets/Products.json";
 import { setContext } from "../../Context/Context";
+import {useNavigate} from "react-router-dom"
 //localStorage.setItem("cartArr",JSON.stringify(cartArr))
 function Favourite() {
   // const [cartItem, setcartItem] = React.useState(JSON.parse(localStorage.getItem("favArr")) || []);
 
   let { state, dispatch } = useContext(setContext);
+  let navigate = useNavigate()
   // console.log("favstate",state);
   // let arr = state.FavArr;
   // console.log("statearr",arr);
@@ -35,7 +37,7 @@ function Favourite() {
         // console.log(product.name);
         return (
           <div key={product.id} className="book-container">
-            <img src={product.img} alt="" />
+            <img onClick={()=>navigate(`/detail/${product.id}`)} src={product.img} alt="" />
             <p>{product.name}</p>
             <button onClick={() => rmvItem(product.id)}>(-)</button>
           </div>

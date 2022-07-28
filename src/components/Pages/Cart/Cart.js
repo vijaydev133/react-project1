@@ -3,11 +3,12 @@ import Nav from "../../assets/Nav";
 import Products from "../../assets/Products.json";
 // import Book from "../../../assets/Book";
 import { setContext } from "../../Context/Context";
+import {useNavigate} from "react-router-dom"
 //localStorage.setItem("cartArr",JSON.stringify(cartArr))
 function Cart() {
   // let cartItems = JSON.parse(localStorage.getItem("cartArr")) || [];
   let { state, dispatch } = useContext(setContext);
-
+  let navigate = useNavigate()
   // console.log(cartItems);
   const rmvCart = (val) => {
     let res = state.CartArr.filter((el) => el !== val);
@@ -23,7 +24,7 @@ function Cart() {
         // console.log(product.name);
         return (
           <div key={product.id} className="book-container">
-            <img src={product.img} alt="" />
+            <img onClick={()=>navigate(`/detail/${product.id}`)} src={product.img} alt="" />
             <p>{product.name}</p>
             <button onClick={() => rmvCart(product.id)}>(-)</button>
           </div>
