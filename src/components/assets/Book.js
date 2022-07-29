@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext ,useEffect} from "react";
 import { setContext } from "../Context/Context";
 import { useNavigate } from "react-router-dom";
 // let cartArr = []
@@ -17,6 +17,19 @@ export default function Book(props) {
 
   //   console.log(bool);
   // },[bool])
+ useEffect(()=>{
+  if (state.FavArr.includes(props.prod.id)) {
+    // console.log("true runs");
+    setBgcolorColor("red");
+   } else {
+  //   // console.log("false runs");
+    setBgcolorColor("white");
+   }
+ }
+
+ )
+  
+
 
   const addToCart = () => {
     let id = props.prod.id;
@@ -25,6 +38,7 @@ export default function Book(props) {
       dispatch({
         type: "addToCart",
         payLoad: id,
+        
       });
 
       // cartArr.push(id)
@@ -38,23 +52,22 @@ export default function Book(props) {
 
     if (state.FavArr.includes(id1)) {
     } else {
+      // localStorage.setItem("isFav", id1)
       dispatch({
         type: "addToFav",
         payLoad: props.prod.id,
       });
+      // dispatch({
+      //   type: "isFav",
+      //   payLoad : {isFav :true}
+      // });
       // setBool(true)
       // console.log(bool);
-      props.prod.isFav = true;
+      // props.prod.isFav = true;
       // favArr.push(id1)
       // console.log(favArr);
       // localStorage.setItem("favArr",JSON.stringify(favArr))
-      if (props.prod.isFav) {
-        // console.log("true runs");
-        setBgcolorColor("red");
-      } else {
-        // console.log("false runs");
-        setBgcolorColor("white");
-      }
+      
     }
   }
 

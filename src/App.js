@@ -9,6 +9,7 @@ import { setContext } from "./components/Context/Context";
 import { initialState } from "./components/Context/reducer";
 import { redFunc } from "./components/Context/reducer";
 import { useReducer } from "react";
+import {Navigate } from "react-router-dom"
 
 function App() {
   const [state, dispatch] = useReducer(redFunc, initialState);
@@ -17,13 +18,23 @@ function App() {
   return (
     <setContext.Provider value={{ state, dispatch }}>
       <div className="App">
+        {(state?.isAuthenticated ? (
         <Routes>
-          <Route path="/" element={<Login />}></Route>
+          <Route path="/" element={<Home />}></Route>
           <Route path="home" element={<Home />}></Route>
           <Route path="cart" element={<Cart />}></Route>
           <Route path="favourite" element={<Favourite />}></Route>
+         
           <Route path="detail/:id" element={<Detail />}></Route>
+          <Route path="*" element={<Navigate to = {"/"}/>}></Route>
         </Routes>
+          ) : (
+        <Routes>
+          <Route path="/" element={<Login />}></Route>
+          <Route path="*" element={<Navigate to = "/"/>}></Route>
+          
+        </Routes>
+        ))}
       </div>
     </setContext.Provider>
   );

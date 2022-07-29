@@ -1,8 +1,11 @@
 import React from "react";
 import datas from "../../assets/personDetail.json";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { setContext } from "../../Context/Context";
 
 export default function Login() {
+  const {dispatch} = useContext(setContext)
   let navigate = useNavigate();
   const [name, setName] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -28,12 +31,18 @@ export default function Login() {
     event.preventDefault();
     datas.forEach((data) => {
       if (data.username === name && data.password === password) {
-        navigate("home");
+        localStorage.setItem("isLoggedIn", true)
+        navigate("/home");
+        dispatch({
+          type : "login",
+          payLoad : {isAuthenticated : true}
+        })
+
       } else {
         if (password === "") {
           setErrMsg("");
         } else {
-          setErrMsg("kindly recheck and type password again");
+          setErrMsg("Invalid username or password");
         }
       }
     });

@@ -1,8 +1,18 @@
-import React from "react";
+import React, {useContext} from "react";
 import logo from "./logo.svg";
 import { NavLink } from "react-router-dom";
+import { setContext } from "../Context/Context";
 
 export default function Nav() {
+
+  const {state,dispatch} = useContext(setContext)
+  function logout(){
+    localStorage.setItem("isLoggedIn",false)
+      dispatch({
+        type : "logout",
+        payLoad : { isAuthenticated : false}
+      })
+  }
   return (
     <nav>
       <div className="nav-left">
@@ -37,6 +47,7 @@ export default function Nav() {
           <li>
             <NavLink
               to="/"
+              onClick={()=>logout()}
               style={({ isActive }) => (isActive ? { color: "red" } : null)}
             >
               logout
